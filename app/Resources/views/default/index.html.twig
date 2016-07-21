@@ -1,7 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
+<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script type="text/javascript">
+
+  var lock = new Auth0Lock('KHqGEYYbd4FjFKxEZohaq30ZATuCOmee', 'unicodeveloper.auth0.com');
+
+
+  function signin() {
+    lock.show({
+        callbackURL: 'http://symfony-got.app/auth0/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
+  }
+</script>
+<button onclick="window.signin();">Login</button>
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-success">
@@ -30,5 +47,5 @@
             {% endif %}
         </div>
     </div>
-</div>
+</div> -->
 {% endblock %}

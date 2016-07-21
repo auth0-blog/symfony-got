@@ -66,3 +66,12 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+hwi_oauth:
+    firewall_names: [secured_area]
+    resource_owners:
+        auth0:
+            type:                auth0
+            base_url:            https://unicodeveloper.auth0.com
+            client_id:           KHqGEYYbd4FjFKxEZohaq30ZATuCOmee
+            client_secret:       kiQ_jxetot4j-mJWrQQPwUhxhMwWkE2mlnTKARX5But1UcXwP7mdAy1x5eqXydMr

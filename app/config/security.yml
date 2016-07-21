@@ -6,11 +6,25 @@ security:
     providers:
         database_users:
             entity: { class: AppBundle:User, property: email }
+        hwi:
+            id: hwi_oauth.user.provider
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        secured_area:
+              anonymous: ~
+              oauth:
+                  resource_owners:
+                      auth0: "/auth0/callback"
+                  login_path:        /login
+                  use_forward:       false
+                  failure_path:      /login
+
+                  oauth_user_provider:
+                      service: hwi_oauth.user.provider
 
         main:
             anonymous: ~

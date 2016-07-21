@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUser as HWIOAuthUser;
 use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends Controller
@@ -39,4 +40,6 @@ class SecurityController extends Controller
     {
 
     }
+
+  
 }
