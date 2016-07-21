@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-success">
+                <div class="panel-heading">List of Game of Thrones Characters</div>
+
+                {% if app.user != null %}
+                  <table class="table">
+                      <tr>
+                          <th>Character</th>
+                          <th>Real Name</th>
+                      </tr>
+
+                      {% for key, item in character %}
+                        <tr>
+                          <td>{{ key }}</td><td>{{ item }}</td>
+                        </tr>
+                      {% endfor %}
+                  </table>
+                {% endif %}
+
+
+            </div>
+
+            {% if app.user == null %}
+              <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
