@@ -4,15 +4,15 @@
 <script src="https://cdn.auth0.com/js/auth0/9.0.0/auth0.min.js"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
-      domain: {{ auth0.base_url }},
-      clientID: {{ auth0.client_id }}
+    domain: {{ auth0.base_url }},
+    clientID: {{ auth0.client_id }}
   });
 
   function signin() {
-      webAuth.authorize({
-          responseType: "code",
-          redirectUri: {{ url('auth0_login') }}
-      });
+    webAuth.authorize({
+      responseType: "code",
+      redirectUri: {{ url('auth0_login') }}
+    });
   }
 </script>
 
@@ -37,10 +37,7 @@
                       {% endfor %}
                   </table>
                 {% endif %}
-
-
             </div>
-
             {% if app.user == null %}
               <a href="/login" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
             {% endif %}
