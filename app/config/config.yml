@@ -37,6 +37,11 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+    globals:
+        auth0:
+            base_url:            '%auth0.base_url%'
+            client_id:           '%auth0.client_id%'
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -72,6 +77,6 @@ hwi_oauth:
     resource_owners:
         auth0:
             type:                auth0
-            base_url:            https://unicodeveloper.auth0.com
-            client_id:           KHqGEYYbd4FjFKxEZohaq30ZATuCOmee
-            client_secret:       kiQ_jxetot4j-mJWrQQPwUhxhMwWkE2mlnTKARX5But1UcXwP7mdAy1x5eqXydMr
+            base_url:            '%auth0.base_url%'
+            client_id:           '%auth0.client_id%'
+            client_secret:       '%auth0.client_secret%'
