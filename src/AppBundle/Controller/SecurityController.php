@@ -4,23 +4,21 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUser as HWIOAuthUser;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/login1", name="login")
      */
-    public function loginAction(Request $request)
+    public function loginAction(AuthenticationUtils $authenticationUtils)
     {
-       $helper = $this->get('security.authentication_utils');
 
        return $this->render(
            'auth/login.html.twig',
            array(
-               'last_username' => $helper->getLastUsername(),
-               'error'         => $helper->getLastAuthenticationError(),
+               'last_username' => $authenticationUtils->getLastUsername(),
+               'error'         => $authenticationUtils->getLastAuthenticationError(),
            )
        );
     }
