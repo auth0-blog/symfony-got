@@ -25,6 +25,9 @@ security:
 
                   oauth_user_provider:
                       service: hwi_oauth.user.provider
+              logout:
+                  path:   /auth0/logout
+                  target: /
 
         main:
             anonymous: ~

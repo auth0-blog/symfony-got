@@ -1,22 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<script src="https://cdn.auth0.com/js/auth0/9.0.0/auth0.min.js"></script>
-<script type="text/javascript">
-  var webAuth = new auth0.WebAuth({
-    domain: {{ auth0.base_url }},
-    clientID: {{ auth0.client_id }}
-  });
 
-  function signin() {
-    webAuth.authorize({
-      responseType: "code",
-      redirectUri: {{ url('auth0_login') }}
-    });
-  }
-</script>
-
-<button onclick="window.signin();">Login</button>
+{% if app.user == null %}
+    <a href="connect/auth0" class="btn btn-primary">Login</a>
+{% endif %}
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

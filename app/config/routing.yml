@@ -12,3 +12,6 @@ hwi_oauth_login:
 
 auth0_login:
     path: /auth0/callback
+
+auth0_logout:
+    path: /auth0/logout
